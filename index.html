@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hollywood Cinema Fun Night</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+    background:#111;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    font-family:Arial,sans-serif;
+}
+.poster{
+    position:relative;
+    width:min(1700px,100%);
+}
+.poster img{
+    width:100%;
+    display:block;
+    border-radius:10px;
+    box-shadow:0 20px 50px rgba(0,0,0,.45);
+}
+.video-card{
+    position:absolute;
+    top:-12px;
+    right:-20px;
+    width:340px;
+    transform:rotate(9deg);
+    background:#fff;
+    padding:10px;
+    border-radius:8px;
+    box-shadow:0 18px 45px rgba(0,0,0,.45);
+    z-index:10;
+}
+.video-card video{
+    width:100%;
+    display:block;
+    border-radius:4px;
+}
+.tape{
+    position:absolute;
+    width:120px;
+    height:34px;
+    background:rgba(255,247,180,.65);
+    border:1px solid rgba(255,255,255,.3);
+    backdrop-filter:blur(2px);
+    z-index:20;
+    box-shadow:0 2px 6px rgba(0,0,0,.2);
+}
+.tape.left{
+    top:-16px;
+    left:18px;
+    transform:rotate(-28deg);
+}
+.tape.right{
+    top:-16px;
+    right:18px;
+    transform:rotate(28deg);
+}
+.pin{
+    position:absolute;
+    width:18px;
+    height:18px;
+    background:#c11;
+    border-radius:50%;
+    border:2px solid #fff;
+    top:-9px;
+    left:50%;
+    transform:translateX(-50%);
+    box-shadow:0 2px 6px rgba(0,0,0,.4);
+    z-index:30;
+}
+@media(max-width:1000px){
+.video-card{width:220px;top:-8px;right:-10px}
+.tape{width:75px;height:24px}
+}
+@media(max-width:650px){
+.video-card{width:145px;top:0;right:0}
+}
+</style>
+</head>
+<body>
+<div class="poster">
+    <img src="night.png" alt="Hollywood Cinema Fun Night">
+
+    <div class="video-card">
+        <div class="tape left"></div>
+        <div class="tape right"></div>
+        <div class="pin"></div>
+
+        <video autoplay muted loop playsinline>
+            <source src="LIVE.mp4" type="video/mp4">
+        </video>
+    </div>
+</div>
+</body>
+</html>
