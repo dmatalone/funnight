@@ -3,100 +3,192 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Hollywood Cinema Fun Night</title>
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
 body{
     background:#111;
-    min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    padding:20px;
-    font-family:Arial,sans-serif;
+    min-height:100vh;
+    overflow:hidden;
+    font-family:Arial,Helvetica,sans-serif;
 }
+
 .poster{
     position:relative;
-    width:min(1700px,100%);
+    width:100%;
+    max-width:1700px;
 }
+
 .poster img{
     width:100%;
     display:block;
-    border-radius:10px;
-    box-shadow:0 20px 50px rgba(0,0,0,.45);
 }
-.video-card{
+
+/* LIVE VIDEO */
+
+.live-card{
+
     position:absolute;
-    top:-12px;
-    right:-20px;
-    width:340px;
-    transform:rotate(9deg);
-    background:#fff;
-    padding:10px;
-    border-radius:8px;
-    box-shadow:0 18px 45px rgba(0,0,0,.45);
-    z-index:10;
-}
-.video-card video{
-    width:100%;
-    display:block;
-    border-radius:4px;
-}
-.tape{
-    position:absolute;
-    width:120px;
-    height:34px;
-    background:rgba(255,247,180,.65);
-    border:1px solid rgba(255,255,255,.3);
-    backdrop-filter:blur(2px);
+
+    top:30px;
+    right:35px;
+
+    width:270px;
+    height:170px;
+
+    transform:rotate(8deg);
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.45);
+
     z-index:20;
-    box-shadow:0 2px 6px rgba(0,0,0,.2);
+
 }
-.tape.left{
-    top:-16px;
-    left:18px;
-    transform:rotate(-28deg);
+
+.live-card video{
+
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+
 }
-.tape.right{
-    top:-16px;
-    right:18px;
-    transform:rotate(28deg);
-}
-.pin{
+
+/* RED LIVE DOT */
+
+.live-dot{
+
     position:absolute;
+
+    top:18px;
+    left:18px;
+
     width:18px;
     height:18px;
-    background:#c11;
+
+    background:#ff2a2a;
+
     border-radius:50%;
-    border:2px solid #fff;
-    top:-9px;
-    left:50%;
-    transform:translateX(-50%);
-    box-shadow:0 2px 6px rgba(0,0,0,.4);
+
     z-index:30;
+
 }
-@media(max-width:1000px){
-.video-card{width:220px;top:-8px;right:-10px}
-.tape{width:75px;height:24px}
+
+/* LIVE TEXT */
+
+.live-text{
+
+    position:absolute;
+
+    left:50%;
+
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    color:white;
+
+    font-size:64px;
+
+    font-weight:900;
+
+    font-style:italic;
+
+    font-family:Arial Black,Arial,sans-serif;
+
+    text-shadow:0 3px 10px rgba(0,0,0,.5);
+
+    pointer-events:none;
+
+    z-index:30;
+
 }
-@media(max-width:650px){
-.video-card{width:145px;top:0;right:0}
+
+/* TICKET */
+
+.ticket{
+
+    position:absolute;
+
+    top:-12px;
+
+    right:-10px;
+
+    width:78px;
+
+    transform:rotate(18deg);
+
+    z-index:31;
+
 }
+
+@media(max-width:900px){
+
+.live-card{
+
+width:180px;
+height:115px;
+
+}
+
+.live-text{
+
+font-size:42px;
+
+}
+
+.ticket{
+
+width:55px;
+
+}
+
+}
+
 </style>
+
 </head>
+
 <body>
+
 <div class="poster">
-    <img src="night.png" alt="Hollywood Cinema Fun Night">
 
-    <div class="video-card">
-        <div class="tape left"></div>
-        <div class="tape right"></div>
-        <div class="pin"></div>
+<img src="night.png" alt="Hollywood Cinema Fun Night">
 
-        <video autoplay muted loop playsinline>
-            <source src="LIVE.mp4" type="video/mp4">
-        </video>
-    </div>
+<div class="live-card">
+
+<video autoplay muted loop playsinline>
+
+<source src="LIVE.mp4" type="video/mp4">
+
+</video>
+
+<div class="live-dot"></div>
+
+<div class="live-text">
+LIVE
 </div>
+
+<img src="ticket.png" class="ticket" alt="Ticket">
+
+</div>
+
+</div>
+
 </body>
+
 </html>
